@@ -994,6 +994,8 @@ et:
     resend_confirmation: Saada kinnitusjuhendid uuesti
     reset_password: Salasõna lähtestamine
     rules:
+      accept: Nõustun
+      back: Tagasi
       preamble: Neist kinnipidamist jälgivad %{domain} moderaatorid.
       title: Mõned põhireeglid.
     security: Turvalisus
@@ -1357,6 +1359,7 @@ et:
           quadrillion: kdn
           thousand: tuh
           trillion: trn
+          unit: ''
   otp_authentication:
     code_hint: Kinnituseks autentimisrakenduse loodud kood
     description_html: Kui aktiveerida <strong>kaheastmeline autentimine</strong> autentimisrakenduse abil, on sisselogimiseks tarvis telefoni, mis loob sisenemiseks võtmeid.

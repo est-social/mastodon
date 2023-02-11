@@ -21,7 +21,7 @@ module Mastodon
     end
 
     def suffix
-      ''
+      '+est'
     end
 
     def to_a
