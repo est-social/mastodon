@@ -1585,7 +1585,9 @@ et:
       '7889238': 3 kuud
     min_age_label: Ajalimiit
     min_favs: Säilita postitused, meeldimistega vähemalt
-    min_favs_hint: "Ei kustuta ühtegi postitust, mis on saanud vähemalt nii palju lemmikuks märkimist. Postituste kustutamiseks olenemata nende lemmikuks märkimise arvust,\njäta tühjaks"
+    min_favs_hint: |-
+      Ei kustuta ühtegi postitust, mis on saanud vähemalt nii palju lemmikuks märkimist. Postituste kustutamiseks olenemata nende lemmikuks märkimise arvust,
+      jäta tühjaks
     min_reblogs: Säilita postitused jagatud vähemalt
     min_reblogs_hint: Ei kustuta postitusi, kui need on jagatud vähemalt nii mitu korda. Tühjaks jättes kustuvad postitused olenemata jagamistest
   stream_entries:
@@ -1675,7 +1677,10 @@ et:
         suspend: Konto kustutatud
     welcome:
       edit_profile_action: Seadista oma profiil
-      edit_profile_step: "Esmalt seadista oma profiil. Saad lisada profiilipildi, muuta ekraaninime, lisada lühikirjelduse ja teha paljut muud. Vaata üle oma konto seaded. Saad ise otsustada, kui nähtav on konto teiste jaoks, mis keeltes postitusi oma ajavoos näha soovid ning kui privaatne peaks konto olema.\n\nKui mõni asi arusaamatuks jääb, siis võib vaadata juhendvideot: https://youtu.be/J4ItbTOAw7Q"
+      edit_profile_step: |-
+        Esmalt seadista oma profiil. Saad lisada profiilipildi, muuta ekraaninime, lisada lühikirjelduse ja teha paljut muud. Vaata üle oma konto seaded. Saad ise otsustada, kui nähtav on konto teiste jaoks, mis keeltes postitusi oma ajavoos näha soovid ning kui privaatne peaks konto olema.
+
+        Kui mõni asi arusaamatuks jääb, siis võib vaadata juhendvideot: https://youtu.be/J4ItbTOAw7Q
       explanation: Siin on mõned nõuanded, mis aitavad alustada
       final_action: Alusta postitamist
       final_step: 'Nüüd tee oma esimene postitus. Hea tava on uues kohas ennast tutvustada ning kindlasti kasuta selles postituses ka teemaviidet #tutvustus. Isegi kui sul ei ole veel jälgijaid, siis su postitusi näevad kohalikul ajajoonel ka kõik teised serveri kasutajad.'
