@@ -125,8 +125,8 @@ et:
       removed_header_msg: "%{username} päisepilt eemaldatud"
       resend_confirmation:
         already_confirmed: See kasutaja on juba kinnitatud
-        send: Saada kinnituskiri uuesti
-        success: Kinnituskiri saadetud edukalt!
+        send: Saada kinnituslink uuesti
+        success: Kinnituslink saadetud edukalt!
       reset: Lähtesta
       reset_password: Salasõna lähtestamine
       resubscribe: Telli taas
@@ -758,7 +758,7 @@ et:
           approved: Kinnitus vajalik konto loomisel
           none: Keegi ei saa kontoid luua
           open: Kõik võivad kontoid luua
-      title: Serveri seadistused
+      title: Serveri seaded
     site_uploads:
       delete: Kustuta üleslaetud fail
       destroyed_msg: Üleslaetud fail edukalt kustutatud!
@@ -988,7 +988,7 @@ et:
       prefix_invited_by_user: "@%{name} kutsub sind liituma selle Mastodoni serveriga!"
       prefix_sign_up: Loo Mastodoni konto juba täna!
       suffix: Kasutajakontoga saad jälgida inimesi, postitada uudiseid ning pidada kirjavahetust ükskõik millise Mastodoni serveri kasutajatega ja muudki!
-    didnt_get_confirmation: Ei saanud kinnituse juhendeid?
+    didnt_get_confirmation: Ei saanud kinnituslinki?
     dont_have_your_security_key: Pole turvavõtit?
     forgot_password: Salasõna ununenud?
     invalid_reset_password_token: Salasõna lähtestusvõti on vale või aegunud. Palun taotle uus.
@@ -1006,7 +1006,7 @@ et:
       saml: SAML
     register: Loo konto
     registration_closed: "%{instance} ei võta vastu uusi liikmeid"
-    resend_confirmation: Saada kinnitusjuhendid uuesti
+    resend_confirmation: Saada kinnituslink uuesti
     reset_password: Salasõna lähtestamine
     rules:
       accept: Nõus
@@ -1016,9 +1016,9 @@ et:
     security: Turvalisus
     set_new_password: Uue salasõna määramine
     setup:
-      email_below_hint_html: Kui allolev e-posti aadress on vale, saad seda muuta siin. Seejärel saadetakse uus kinnituskiri.
-      email_settings_hint_html: Kinnituskiri saadeti e-posti aadressile %{email}. Kui see aadress pole õige, saad muuta seda oma konto sätetest.
-      title: Seadistamine
+      email_below_hint_html: Kontrolli rämpspostikausta või taotle uut. Saad parandada e-postiaadressi, kui see on vale.
+      email_settings_hint_html: Klõpsa linki, mis saadeti sulle, et kinnitada %{email}. Seni me ootame.
+      title: Kontrolli sisendkasti
     sign_in:
       preamble_html: Logi sisse oma <strong>%{domain}</strong> volitustega. Kui konto asub teises serveris, ei saa siin sisse logida.
       title: Logi sisse kohta %{domain}
@@ -1240,6 +1240,7 @@ et:
       bookmarks: Järjehoidjad
       domain_blocking: Domeeniblokeeringute nimekiri
       following: Jälgimiste nimekiri
+      lists: Loetelud
       muting: Vaigistuse nimekiri
     upload: Lae üles
   invites:
@@ -1394,6 +1395,7 @@ et:
       expired: See küsitlus on juba lõppenud
       invalid_choice: Valitud küsitluse valikut pole olemas
       over_character_limit: igaüks ei saa olla rohkem kui %{max} tähemärki
+      self_vote: Sa ei saa enda hääletustel hääletada
       too_few_options: peab olema rohkem kui üks vastus
       too_many_options: ei saa sisaldada rohkem kui %{max} vastust
   preferences:
@@ -1412,6 +1414,7 @@ et:
     confirm_remove_selected_followers: Oled kindel, et soovid eemaldada valitud jälgijad?
     confirm_remove_selected_follows: Oled kindel, et soovid eemaldada valitud jälgitavad?
     dormant: Seisev
+    follow_failure: Mõne valitud konto jälgimine polnud võimalik.
     follow_selected_followers: Valitud jälgijate jälgimine
     followers: Jälgijad
     following: Jälgib
@@ -1700,7 +1703,13 @@ et:
     seamless_external_login: Välise teenuse kaudu sisse logides pole salasõna ja e-posti sätted saadaval.
     signed_in_as: 'Sisse logitud kasutajana:'
   verification:
-    explanation_html: 'Saad <strong>kinnitada ennast oma profiili metaandmete veebiviidete omanikuna.</strong> Selleks peab lingitud veebilehel olema viide tagasi sinu Mastodoni profiilile. Pärast lingi lisamist pead võib-olla siia tagasi tulema ja oma profiili uuesti salvestama, et kinnitus jõustuks. Tagasiviide <strong>peab</strong> sisaldama <code>rel="me"</code> atribuuti. Lingi tekstiline sisu ei ole oluline. Siin on näide:'
+    explanation_html: |-
+      Saad <strong>kinnitada ennast oma profiili metaandmete veebiviidete omanikuna.</strong>
+      Selleks peab lingitud veebilehel olema viide tagasi sinu Mastodoni profiilile.
+      Pärast lingi lisamist pead võib-olla siia tagasi tulema ja oma profiili uuesti salvestama, et kinnitus jõustuks.
+      Tagasiviide <strong>peab</strong> sisaldama <code>rel="me"</code> atribuuti.
+      Lingi tekstiline sisu ei ole oluline.
+      Siin on näide:
     verification: Kinnitamine
   webauthn_credentials:
     add: Uue turvavõtme lisamine
