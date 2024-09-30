@@ -764,6 +764,7 @@ et:
         disabled: Mitte kellelegi
         users: Sisseloginud kohalikele kasutajatele
       registrations:
+        moderation_recommandation: Palun veendu, et moderaatoritiim on piisavalt adekvaatne ja reaktiivne, enne kui registreerimise kõigile avad!
         preamble: Kes saab serveril konto luua.
         title: Registreerimised
       registrations_mode:
@@ -771,6 +772,7 @@ et:
           approved: Kinnitus vajalik konto loomisel
           none: Keegi ei saa kontoid luua
           open: Kõik võivad kontoid luua
+        warning_hint: Soovitame kasutada "Kinnitus vajalik konto loomisel", kui pole väga kindel, et moderaatorid saavad rämpsposti ja pahatahtlike registreerimistega õigeaegselt hakkama.
       security:
         authorized_fetch: Nõua föderatiivse serveripoolset autoriseerimist
         authorized_fetch_hint: Föderatiivsete serverite poolse autoriseerimise nõudmine võimaldab nii kasutaja- kui ka serveritasandi blokeeringute rangemat jõustamist. See toob aga kaasa jõudluse vähenemise, vähendab vastuste ulatust ja võib tekitada ühilduvusprobleeme mõne ühendatud teenusega. Lisaks ei takista see teatud kasutajatel sinu avalike postituste ja kontode kättesaamist.
@@ -831,7 +833,21 @@ et:
       appeal_rejected: Vaidlustus tagasi lükatud
     system_checks:
       database_schema_check:
-        message_html: On ootel andmebaasi migreerimisi. Rakenduse ootuspäraseks toimimiseks palun käivita need
+        message_html: On ootel andmebaasimigratsioone. Rakenduse ootuspäraseks toimimiseks palun käivita need
+      elasticsearch_health_red:
+        message_html: Elasticsearch klaster on ebatervislik (punane staatus), mõned otsingufunktsioonid ei ole saadaval
+      elasticsearch_health_yellow:
+        message_html: Elasticsearch cluster is ebatervislik (kollane staatus), võiksid põhjust uurida
+      elasticsearch_index_mismatch:
+        message_html: Elasticsearch indeksikaardistused on aegunud. Palun jooksuta <code>tootctl search deploy --only=%{value}</code>
+      elasticsearch_preset:
+        action: Loe paigaldusjuhendit
+        message_html: Elasticsearch klastril on rohkem kui üks sõlme, kuid Mastodon ei ole seadistatud neid kasutama.
+      elasticsearch_preset_single_node:
+        action: Loe paigaldusjuhendit
+        message_html: Elasticsearch klastril on ainult üks sõlm, <code>ES_PRESET</code> peaks olema seadistatud väärtusele <code>single_node_cluster</code>.
+      elasticsearch_reset_chewy:
+        message_html: Elasticsearch indeksid on aegunud seadistuste muutumise tõttu. Palun jooksuta <code>tootctl search deploy --reset-chewy</code> selle uuendamiseks.
       elasticsearch_running_check:
         message_html: Elasticsearch ei vasta. Kontrolli, kas see töötab või keela täistekstiotsing
       elasticsearch_version_check:
@@ -842,6 +858,9 @@ et:
         message_html: Serverireegleid pole defineeritud.
       sidekiq_process_check:
         message_html: Ühtegi Sidekiq protsessi pole %{value} järjekorra jaoks. Sidekiq seadistus vajab üle vaatamist
+      software_version_check:
+        action: Vaata saadaolevaid uuendusi
+        message_html: Mastodoni uuendus on saadaval.
       software_version_critical_check:
         action: Vaata saadaolevaid uuendusi
         message_html: Saadaval on Mastodoni kriitiline uuendus, uuenda nii kiiresti kui võimalik.
@@ -949,6 +968,9 @@ et:
       title: Veebikonksud
       webhook: Veebikonks
   admin_mailer:
+    auto_close_registrations:
+      body: Kuna moderaatorid pole olnud aktiivsed, on %{instance} liikmeks registreerimine automaatselt lülitatud manuaalsele ülevaatamisele, et vältida %{instance} kasutamist pahatahtlikel eesmärkidel. Lahtistele registreerimistele saab alati tagasi lülitada.
+      subject: Registreerimine %{instance} liikmeks on automaatselt lülitatud käsitsi kinnitamise peale
     new_appeal:
       actions:
         delete_statuses: kustutada postitused
@@ -1816,6 +1838,7 @@ et:
     go_to_sso_account_settings: Mine oma idenditeedipakkuja kontosätetesse
     invalid_otp_token: Vale kaheastmeline võti
     otp_lost_help_html: Kui kaotasid ligipääsu mõlemale, saad võtta ühendust %{email}-iga
+    rate_limited: Liiga palju autentimiskatseid, proovi hiljem uuesti.
     seamless_external_login: Välise teenuse kaudu sisse logides pole salasõna ja e-posti sätted saadaval.
     signed_in_as: 'Sisse logitud kasutajana:'
   verification:
