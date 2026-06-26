@@ -1,4 +1,4 @@
-name: Build container image for PR
+name: Build container image for PR (fork)
 on:
   pull_request:
     types: [labeled, synchronize, reopened, ready_for_review, opened]
@@ -11,11 +11,11 @@ jobs:
   compute-suffix:
     runs-on: ubuntu-latest
     # This is only allowed to run if:
-    # - the PR branch is in the `mastodon/mastodon` repository
+    # - this is the est-social fork (not upstream)
+    # - the PR branch is in this repository (not a fork-of-the-fork)
     # - the PR is not a draft
     # - the PR has the "build-image" label
-    # `github.repository ==` guard keeps this upstream-only; the fork uses fork-build-pr.yml (ghcr.io/est-social/*)
-    if: ${{ github.repository == 'mastodon/mastodon' && github.event.pull_request.head.repo.full_name == github.repository && !github.event.pull_request.draft && contains(github.event.pull_request.labels.*.name, 'build-image') }}
+    if: ${{ github.repository == 'est-social/mastodon' && github.event.pull_request.head.repo.full_name == github.repository && !github.event.pull_request.draft && contains(github.event.pull_request.labels.*.name, 'build-image') }}
     steps:
       # Repository needs to be cloned so `git rev-parse` below works
       - name: Clone repository
@@ -34,7 +34,7 @@ jobs:
     with:
       file_to_build: Dockerfile
       push_to_images: |
-        ghcr.io/mastodon/mastodon
+        ghcr.io/est-social/mastodon
       version_metadata: ${{ needs.compute-suffix.outputs.metadata }}
       flavor: |
         latest=auto
@@ -49,7 +49,7 @@ jobs:
     with:
       file_to_build: streaming/Dockerfile
       push_to_images: |
-        ghcr.io/mastodon/mastodon-streaming
+        ghcr.io/est-social/mastodon-streaming
       version_metadata: ${{ needs.compute-suffix.outputs.metadata }}
       flavor: |
         latest=auto

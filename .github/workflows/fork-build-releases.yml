@@ -1,0 +1,44 @@
+name: Build container release images (fork)
+on:
+  push:
+    tags:
+      # Fork releases are tagged like `v4.5.12-est`
+      - '*-est'
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  build-image:
+    if: github.repository == 'est-social/mastodon'
+    uses: ./.github/workflows/build-container-image.yml
+    with:
+      file_to_build: Dockerfile
+      push_to_images: |
+        ghcr.io/est-social/mastodon
+      # Do not use cache when building releases, so apt update is always ran and the release always contains the latest packages
+      cache: false
+      # We do not maintain `stable-*` branches on the fork, so never auto-tag `latest`.
+      # Flip to `latest=true` (or set per-tag) if you want a rolling `latest` tag.
+      flavor: |
+        latest=false
+      # Tag the image with the full git tag name as-is (e.g. `v4.5.12-est`),
+      # since the `-est` suffix is not valid PEP 440 / semver for the metadata-action parsers.
+      tags: |
+        type=ref,event=tag
+    secrets: inherit
+
+  build-image-streaming:
+    if: github.repository == 'est-social/mastodon'
+    uses: ./.github/workflows/build-container-image.yml
+    with:
+      file_to_build: streaming/Dockerfile
+      push_to_images: |
+        ghcr.io/est-social/mastodon-streaming
+      cache: false
+      flavor: |
+        latest=false
+      tags: |
+        type=ref,event=tag
+    secrets: inherit
