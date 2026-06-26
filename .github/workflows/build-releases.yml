@@ -11,6 +11,9 @@ permissions:
 jobs:
   check-latest-stable:
     runs-on: ubuntu-latest
+    # Only run on upstream; the fork uses fork-build-releases.yml (pushes to ghcr.io/est-social/*).
+    # Downstream build jobs `needs:` this one, so guarding it here skips the whole workflow on forks.
+    if: github.repository == 'mastodon/mastodon'
     outputs:
       latest: ${{ steps.check.outputs.is_latest_stable }}
     steps:
