@@ -2,8 +2,8 @@ name: Build container release images (fork)
 on:
   push:
     tags:
-      # Fork releases are tagged like `v4.5.12-est`
-      - '*-est'
+      # Fork releases are tagged like `v4.5.12-est`, patch releases like `v4.5.12-est.1`
+      - '*-est*'
   # Manual rebuild of an existing release, e.g. to pick up security updates in
   # the base images and apt packages. Pick the release tag (not a branch) in
   # "Use workflow from": the image tags are derived from the git tag, and the tag
