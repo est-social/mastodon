@@ -36,7 +36,9 @@ titled "Update to v4.7.4".
 
 Security fixes that can't wait for an upstream release (e.g. a Ruby, Node or gem bump) get a patch
 release on top: `v4.7.3-est.1`, `v4.7.3-est.2` and so on, starting again with each upstream version.
-Prefer cherry-picking the upstream commit, if there is one, so the next upstream merge stays clean.
+For gem fixes, prefer cherry-picking the upstream commit, if there is one, so the next upstream
+merge stays clean. Upstream only bumps Ruby and Node on `main`, not on stable branches, so do those
+ourselves (`.ruby-version`, `.nvmrc`, `Dockerfile`, `Gemfile.lock`).
 The release notes should say what changed and what the server needs (e.g. `rbenv install`,
 `bundle install`, restart; whether there are migrations or assets to build).
 
